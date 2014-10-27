@@ -52,11 +52,11 @@ describe('generator function', function () {
             var num = 0;
 
             num = yield add(num, 1);
-            console.log(num, new Date().getTime());
+            logSum(num);
             num = yield add(num, 4);
-            console.log(num, new Date().getTime());
+            logSum(num);
             num = yield add(num, 2);
-            console.log(num, new Date().getTime());
+            logSum(num);
 
             num.should.equal(7);
             done();
