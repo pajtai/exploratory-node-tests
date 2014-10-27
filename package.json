@@ -18,6 +18,8 @@
   "homepage": "https://github.com/pajtai/exploratory-node-tests",
   "dependencies": {
     "chai": "^1.9.2",
+    "lodash": "^2.4.1",
+    "q": "^1.0.1",
     "sinon": "^1.11.0",
     "sinon-chai": "^2.6.0"
   }
