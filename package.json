@@ -1,0 +1,24 @@
+{
+  "name": "exploratory-node-test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pajtai/exploratory-node-tests.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pajtai/exploratory-node-tests/issues"
+  },
+  "homepage": "https://github.com/pajtai/exploratory-node-tests",
+  "dependencies": {
+    "chai": "^1.9.2",
+    "sinon": "^1.11.0",
+    "sinon-chai": "^2.6.0"
+  }
+}
