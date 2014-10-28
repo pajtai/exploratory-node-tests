@@ -118,6 +118,29 @@ describe('parallel that returns different types', function() {
 
 });
 
+describe('simple rejection', function() {
+
+    it('with q promises', function(done) {
+        addWhoops().then(function() {}, function(reason) {
+            reason.should.equal(2);
+            done();
+        })
+            .catch(done);
+    });
+
+    it('with q async promise generators', function(done) {
+        Q.async(function* () {
+            try {
+                yield addWhoops();
+            } catch (error) {
+                error.should.equal(2);
+            }
+            done();
+        })()
+            .catch(done);
+    });
+});
+
 function getExpectedUserInfo() {
     return {
         name : 'julia',
@@ -221,5 +244,5 @@ function logSum(sum) {
 }
 
 function addWhoops() {
-    return Q.reject();
+    return Q.reject(2);
 }
