@@ -14,7 +14,8 @@ module.exports = {
     getName : getName,
     getSuggestions : getSuggestions,
     logSum : logSum,
-    multiply : multiply
+    multiply : multiply,
+    getTimer: getTimer
 };
 
 function getExpectedUserInfo() {
@@ -84,4 +85,18 @@ function logSum(sum) {
 
 function addWhoops() {
     return Q.reject(2);
+}
+
+function Timer() {}
+
+Timer.prototype.start = function() {
+    this.startTime = new Date().getTime();
+};
+
+Timer.prototype.elapsed = function() {
+    return new Date().getTime() - this.startTime;
+};
+
+function getTimer() {
+    return new Timer();
 }
