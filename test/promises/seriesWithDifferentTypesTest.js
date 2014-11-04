@@ -4,30 +4,28 @@
 // mocha --harmony test
 
 var chai = require('chai'),
-    sinonChai = require('sinon-chai'),
     Q = require('q'),
-    _ = require('lodash'),
     should = chai.should(),
-    lag = 50;
+    utils = require('./../utilities');
 
 describe('series that returns different types', function() {
 
     it('with q promises', function(done) {
         var userInfo = {};
-        getName()
+        utils.getName()
             .then(function(name) {
                 userInfo.name = name;
             })
-            .then(getAddress)
+            .then(utils.getAddress)
             .then(function(address) {
                 userInfo.address = address;
             })
-            .then(getSuggestions)
+            .then(utils.getSuggestions)
             .then(function(suggestions) {
                 userInfo.suggestions = suggestions;
             })
             .then(function() {
-                userInfo.should.deep.equal(getExpectedUserInfo());
+                userInfo.should.deep.equal(utils.getExpectedUserInfo());
                 done();
             })
             .catch(done);
@@ -36,15 +34,15 @@ describe('series that returns different types', function() {
     it('with q async promise generators', function (done) {
         Q.async(function* () {
             var theName, address, suggestions, answer;
-            theName = yield getName();
-            address = yield getAddress();
-            suggestions = yield getSuggestions();
+            theName = yield utils.getName();
+            address = yield utils.getAddress();
+            suggestions = yield utils.getSuggestions();
 
             ({
                 name : theName,
                 address : address,
                 suggestions : suggestions
-            }).should.deep.equal(getExpectedUserInfo());
+            }).should.deep.equal(utils.getExpectedUserInfo());
 
             done();
         })()

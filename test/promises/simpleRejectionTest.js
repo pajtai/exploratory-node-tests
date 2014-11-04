@@ -4,16 +4,15 @@
 // mocha --harmony test
 
 var chai = require('chai'),
-    sinonChai = require('sinon-chai'),
     Q = require('q'),
     _ = require('lodash'),
     should = chai.should(),
-    lag = 50;
+    utils = require('./../utilities');
 
 describe('simple rejection', function() {
 
     it('with q promises', function(done) {
-        addWhoops().then(function() {}, function(reason) {
+        utils.addWhoops().then(function() {}, function(reason) {
             reason.should.equal(2);
             done();
         })
@@ -23,7 +22,7 @@ describe('simple rejection', function() {
     it('with q async promise generators', function(done) {
         Q.async(function* () {
             try {
-                yield addWhoops();
+                yield utils.addWhoops();
             } catch (error) {
                 error.should.equal(2);
             }

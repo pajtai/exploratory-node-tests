@@ -4,17 +4,15 @@
 // mocha --harmony test
 
 var chai = require('chai'),
-    sinonChai = require('sinon-chai'),
     Q = require('q'),
-    _ = require('lodash'),
     should = chai.should(),
-    lag = 50;
+    utils = require('./../utilities');
 
 describe('simple series of promises', function() {
     it('with q promises', function (done) {
-        add(0, 1)
-            .then(add.bind(null, 4))
-            .then(add.bind(null, 2))
+        utils.add(0, 1)
+            .then(utils.add.bind(null, 4))
+            .then(utils.add.bind(null, 2))
             .then(function (sum) {
                 sum.should.equal(7);
                 done();
@@ -26,9 +24,9 @@ describe('simple series of promises', function() {
         Q.async(function* () {
             var num = 0;
 
-            num = yield add(num, 1);
-            num = yield add(num, 4);
-            num = yield add(num, 2);
+            num = yield utils.add(num, 1);
+            num = yield utils.add(num, 4);
+            num = yield utils.add(num, 2);
 
             num.should.equal(7);
             done();

@@ -5,7 +5,8 @@
 
 var chai = require('chai'),
     Q = require('q'),
-    utils = require('./utilities');
+    _ = require('lodash'),
+    utils = require('./../utilities/index');
 
     chai.should();
 

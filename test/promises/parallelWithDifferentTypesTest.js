@@ -4,7 +4,7 @@
 // mocha --harmony test
 
 var chai = require('chai'),
-    utils = require('./utilities'),
+    utils = require('./../utilities/index'),
     Q = require('q');
 
 chai.should();
@@ -36,7 +36,7 @@ describe('parallel that returns different types', function() {
                 address : userInfo[1],
                 suggestions : userInfo[2]
             })
-                .should.deep.equal(getExpectedUserInfo());
+                .should.deep.equal(utils.getExpectedUserInfo());
 
             done();
         })()

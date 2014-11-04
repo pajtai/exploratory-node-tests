@@ -1,9 +1,11 @@
 'use strict';
 
-var Q = require('Q');
+var Q = require('Q'),
+    _ = require('lodash'),
+    lag = 50;
 
 module.exports = {
-    lag : 50,
+    lag : lag,
 
     add : add,
     addWhoops : addWhoops,
