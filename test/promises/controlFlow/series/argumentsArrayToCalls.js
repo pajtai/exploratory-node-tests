@@ -15,11 +15,10 @@ describe('turning an array of arguments into a series of calls', function(done) 
 
         timer.start();
 
-        functions.forEach(function(step) {
-            result = result.then(step);
-        });
-
-        result.then(done.bind(null, undefined));
+        functions.reduce(function(chain, step) {
+            return chain.then(step);
+        }, Q())
+            .then(done.bind(null, undefined));
 
         function getDelayedMessage(msg) {
             return function() {
