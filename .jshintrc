@@ -1,8 +1,32 @@
 {
-  "node": true,
+  "node" : true,
   "globals": {
-    "describe": "false",
-    "it": "false"
+    "beforeEach": false,
+    "afterEach": false,
+    "before": false,
+    "after": false,
+    "define": false,
+    "describe": false,
+    "xdescribe": false,
+    "it": false,
+    "xit": false
   },
-  "esnext": true
+  "curly": true,
+  "quotmark": "single",
+  "debug" : true,
+  "validthis" : true,
+  "expr" : true,
+  "loopfunc" : false,
+  "onevar" : true,
+  "strict" : true,
+  "undef" : true,
+  "unused" : true,
+  "maxlen" : 121,
+  "newcap" : false,
+  "trailing" : true,
+  "indent" : 4,
+  "noarg" : true,
+  "maxdepth" : 2,
+  "devel" : true,
+  "esnext" : true
 }

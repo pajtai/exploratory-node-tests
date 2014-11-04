@@ -1,0 +1,85 @@
+'use strict';
+
+var Q = require('Q');
+
+module.exports = {
+    lag : 50,
+
+    add : add,
+    addWhoops : addWhoops,
+    getAddress : getAddress,
+    getExpectedUserInfo : getExpectedUserInfo,
+    getName : getName,
+    getSuggestions : getSuggestions,
+    logSum : logSum,
+    multiply : multiply
+};
+
+function getExpectedUserInfo() {
+    return {
+        name : 'julia',
+        address : {
+            'gulia drive' : 123
+        },
+        suggestions : [ 'go away' ]
+    };
+}
+
+function getName() {
+    var deferred = Q.defer();
+    _.delay(function() {
+        deferred.resolve('julia');
+    }, lag);
+    return deferred.promise;
+}
+
+function getAddress() {
+    var deferred = Q.defer();
+    _.delay(function() {
+        deferred.resolve({
+            'gulia drive': 123
+        });
+    }, lag);
+    return deferred.promise;
+}
+
+function getSuggestions() {
+    var deferred = Q.defer();
+    _.delay(function() {
+        deferred.resolve(['go away']);
+    }, lag);
+    return deferred.promise;
+}
+
+function multiply(num, otherNum) {
+    var def = Q.defer();
+
+    _.delay(function () {
+        var sum = num * otherNum;
+        logSum(sum);
+        def.resolve(sum);
+    }, lag);
+
+    return def.promise;
+}
+
+function add(num, otherNum) {
+    var def = Q.defer();
+
+    _.delay(function () {
+        var sum = num + otherNum;
+        logSum(sum);
+        def.resolve(sum);
+    }, lag);
+
+    return def.promise;
+}
+
+function logSum(sum) {
+    console.log('           ', sum, new Date().getTime());
+    return sum;
+}
+
+function addWhoops() {
+    return Q.reject(2);
+}
