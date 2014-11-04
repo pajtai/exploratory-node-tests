@@ -4,7 +4,7 @@
 // mocha --harmony test
 
 var chai = require('chai'),
-    utils = require('./../utilities/index'),
+    utils = require('./../../../utilities/index'),
     Q = require('q');
 
 chai.should();

@@ -6,7 +6,7 @@
 var chai = require('chai'),
     Q = require('q'),
     should = chai.should(),
-    utils = require('./../utilities');
+    utils = require('./../../../utilities/index');
 
 describe('series that returns different types', function() {
 
