@@ -15,9 +15,7 @@ describe('turning an array of arguments into a series of calls', function(done) 
 
         timer.start();
 
-        functions.reduce(function(chain, step) {
-            return chain.then(step);
-        }, Q())
+        functions.reduce(Q.when, Q())
             .then(done.bind(null, undefined));
 
         function getDelayedMessage(msg) {
